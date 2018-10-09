@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Formulário</title>
+    <link rel="stylesheet" href="styles.css">
+
+  </head>
+  <body>
+    
+    <h1>Formulário</h1>
+
+    <form class="blocosTexto">
+
+        <label for="nome">Nome:<br></label>
+        <input type="text" placeholder="Seu nome aqui" id="nome"/>
+
+
+        <label for="sobrenome"><br><br>Sobrenome:<br></label>
+        <input type="text" placeholder="Seu sobrenome aqui" id="sobrenome"/>
+
+        <label for="email"><br><br>E-mail:<br></label>
+        <input type="text" placeholder="aeiou@aeiou.com" id="email"/>
+
+        <label for="nasc"><br><br>Data de Nascimento:<br></label>
+        <input type="date" id="nasc"/>
+
+        <label for="sexo"><br><br>Sexo:<br></label>
+        <input type="radio" name="sexo" value="masculino">Masculino<br>
+        <input type="radio" name="sexo" value="feminino">Feminino<br>
+        <input type="radio" name="sexo" value="outros">Outros
+        
+        <label for="cor"><br><br>Cor:<br></label>
+        <input type="radio" name="cor" value="preto">Preto<br>
+        <input type="radio" name="cor" value="pardo">Pardo<br>
+        <input type="radio" name="cor" value="branco">Branco<br>
+        <input type="radio" name="cor" value="indio">Índio
+
+        <label for="mensagem"><br><br>Mensagem:<br></label>
+        <input type="textarea" id="mensagem"><br><br>
+
+    </form>
+
+    <button type="button" id="submitBtn">Enviar Formulário</button>
+    
+
+    <h2>LISTANDO DADOS:</h2>
+
+    <div id="lista"></div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
