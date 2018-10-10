@@ -9,13 +9,17 @@ var submitBtnElement = document.querySelector("#submitBtn");
 var listaElement = document.querySelector("#lista");
 
 
-var guardaUsuarios = [];
+var guardaUsuarios = JSON.parse(localStorage.getItem("lista_usuarios")) || [];
 
 function listUsuarios(){
 
     for(usuario of guardaUsuarios){
         var usuarioElement = document.createElement("li");
-        //var textUsuario = document.createTextNode("Nome: " + usuario.nome + ' || ' +"Sobrenome: " + usuario.sobrenome + ' || ' +"E-mail: "+ usuario.email);
+        var excluirElement = document.createElement("button");
+        
+        var pos = guardaUsuarios.indexOf(usuario);
+        var textExcluir = document.createTextNode("Excluir");
+        excluirElement.setAttribute("onclick", "deleteUsuario( " + pos + ")");
 
         usuarioElement.innerHTML ="Nome: " + usuario.nome + "<br>"
                                 +"Sobrenome: " + usuario.sobrenome + "<br>"
@@ -25,8 +29,10 @@ function listUsuarios(){
                                 + "Cor: " + usuario.cor + "<br>"
                                 + "<br>Mensagem: <br>  " + usuario.mensagem;
 
-        //usuarioElement.appendChild(textUsuario);
+        excluirElement.appendChild(textExcluir);
+
         listaElement.appendChild(usuarioElement);
+        listaElement.appendChild(excluirElement);
     };
 
 }
@@ -72,6 +78,18 @@ function addUsuario(){
     corElement.value='';
     mensagemElement.value='';
 
+    saveToStorage();
     listUsuarios();
+}
+
+function deleteUsuario(pos){
+    guardaUsuarios.splice(pos, 1);
+    listaElement.innerHTML = '';
+    saveToStorage();
+    listUsuarios();
+}
+
+function saveToStorage(){
+    localStorage.setItem("lista_usuarios", JSON.stringify(guardaUsuarios))
 }
 submitBtnElement.onclick=addUsuario;
