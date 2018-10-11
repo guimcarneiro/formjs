@@ -13,6 +13,15 @@ var guardaUsuarios = JSON.parse(localStorage.getItem("lista_usuarios")) || [];
 
 function listUsuarios(){
 
+    var titleElement = document.createElement("h2");
+    titleElement.innerHTML = "LISTA DADOS";
+    
+    if(guardaUsuarios.length != 0){
+        listaElement.appendChild(titleElement);
+    }
+
+    
+
     for(usuario of guardaUsuarios){
 
         var usuarioElement = document.createElement("li");
