@@ -14,7 +14,10 @@ var guardaUsuarios = JSON.parse(localStorage.getItem("lista_usuarios")) || [];
 function listUsuarios(){
 
     for(usuario of guardaUsuarios){
+
         var usuarioElement = document.createElement("li");
+        usuarioElement.classList.add("list-group-item");
+
         var excluirElement = document.createElement("button");
         
         var pos = guardaUsuarios.indexOf(usuario);
@@ -27,12 +30,12 @@ function listUsuarios(){
                                 + "Data de Nascimento: " + usuario.nasc + "<br>"
                                 + "Sexo: " + usuario.sexo + "<br>"
                                 + "Cor: " + usuario.cor + "<br>"
-                                + "<br>Mensagem: <br>  " + usuario.mensagem;
+                                + "<br>Mensagem: <br>  " + usuario.mensagem + "<br>";
 
         excluirElement.appendChild(textExcluir);
 
         listaElement.appendChild(usuarioElement);
-        listaElement.appendChild(excluirElement);
+        usuarioElement.appendChild(excluirElement);
     };
 
 }
